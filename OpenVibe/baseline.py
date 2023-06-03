@@ -12,7 +12,7 @@ class MyOVBox(OVBox):
    
 
    def initialize(self):
-       self.signal = numpy.empty([1, 64*30])
+       self.signal = numpy.empty([1, 64*60])
        self.nb_chunk=0
        print("init...")
    

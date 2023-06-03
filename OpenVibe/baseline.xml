@@ -85,7 +85,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Users/33770/Documents/GitHub/brain_kart/OpenVibe/baseline.py</Value>
+					<Value>${Player_ScenarioDirectory}/baseline.py</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
@@ -374,7 +374,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Lua Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>C:/Users/33770/Documents/GitHub/brain_kart/OpenVibe/baseline.lua</Value>
+					<Value>${Player_ScenarioDirectory}/baseline.lua</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -382,7 +382,7 @@
 					<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
 					<Name>Baseline_Duration</Name>
 					<DefaultValue>60</DefaultValue>
-					<Value>30</Value>
+					<Value>60</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
