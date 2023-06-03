@@ -41,9 +41,6 @@ class MyOVBox(OVBox):
             chunk = self.input[0].pop()
             numpyBuffer = numpy.array(chunk).reshape(tuple(self.signalHeader.dimensionSizes))
             #numpyBuffer = numpyBuffer.mean(axis=1)
-            if math.isnan(numpyBuffer):
-               print("il y a un nan")
-               self.out.append('un NaN')
             self.signal[0,self.nb_chunk]=(numpyBuffer)
             chunk = OVSignalBuffer(chunk.startTime, chunk.endTime, numpyBuffer.tolist())
             self.output[0].append(chunk)
@@ -54,9 +51,13 @@ class MyOVBox(OVBox):
             #self.output[0].append(self.input[0].pop())
 
    def uninitialize(self):
+      for i in range(self.signal.shape[1]):
+         if numpy.isnan(self.signal[0,i]):
+            numpy.delete(self.signal,0,i)
+
       print("mean:",self.signal.mean(axis=1))
       print("signal:",self.signal)
-      print("nan:",self.out)
+     
 
 # Finally, we notify openvibe that the box instance 'box' is now an instance of MyOVBox.
 # Don't forget that step !!
