@@ -8,11 +8,10 @@ class MyOVBox(OVBox):
       OVBox.__init__(self)
    # we add a new member to save the signal header information we will receive
       self.signalHeader = None
-     
-   
+
 
    def initialize(self):
-       self.signal = numpy.empty([1, 64*60])
+       self.signal = numpy.empty([1, 64*10])
        self.nb_chunk=0
        print("init...")
    
@@ -40,25 +39,35 @@ class MyOVBox(OVBox):
          elif(type(self.input[0][chunkIndex]) == OVSignalBuffer):
             chunk = self.input[0].pop()
             numpyBuffer = numpy.array(chunk).reshape(tuple(self.signalHeader.dimensionSizes))
-            #numpyBuffer = numpyBuffer.mean(axis=1)
+            numpyBuffer = numpyBuffer.mean(axis=0)
             self.signal[0,self.nb_chunk]=(numpyBuffer)
             chunk = OVSignalBuffer(chunk.startTime, chunk.endTime, numpyBuffer.tolist())
             self.output[0].append(chunk)
             self.nb_chunk+=1
          # if it's a end-of-stream we just forward that information to the output
          elif(type(self.input[0][chunkIndex]) == OVSignalEnd):
-            print(self.signal)
+            pass
+            # print(self.signal)
             #self.output[0].append(self.input[0].pop())
 
    def uninitialize(self):
-      for i in range(self.signal.shape[1]):
-         if numpy.isnan(self.signal[0,i]):
-            numpy.delete(self.signal,0,i)
+      mask = numpy.isfinite(self.signal)
 
-      print("mean:",self.signal.mean(axis=1))
-      print("signal:",self.signal)
+      # for i in range(self.signal.shape[0]):
+      #    print(self.signal[:,i])
+
+
+      print("mean:",self.signal[0, 0:self.nb_chunk].mean(axis=0))
+      # print("signal:",self.signal)
+      # print("nb_chunk", self.nb_chunk)
+      # mask = numpy.where(self.signal == 0)
+      # print("mask", mask)
+
+
+
      
 
 # Finally, we notify openvibe that the box instance 'box' is now an instance of MyOVBox.
 # Don't forget that step !!
 box = MyOVBox()
+#%%
