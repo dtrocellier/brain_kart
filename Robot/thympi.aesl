@@ -1,0 +1,100 @@
+<!DOCTYPE aesl-source>
+<network>
+
+
+<!--list of global events-->
+<event size="1" name="timer0.period"/>
+<event size="1" name="timer1.period"/>
+<event size="1" name="setSpeed"/>
+<event size="1" name="mic.threshold"/>
+<event size="1" name="prox.comm.tx"/>
+<event size="1" name="prox.comm.enable"/>
+<event size="3" name="leds.bottom.right"/>
+<event size="3" name="leds.bottom.left"/>
+<event size="8" name="leds.circle"/>
+<event size="8" name="leds.prox.h"/>
+<event size="2" name="leds.prox.v"/>
+<event size="2" name="leds.temperature"/>
+<event size="4" name="leds.buttons"/>
+<event size="3" name="leds.color"/>
+<event size="3" name="leds.top"/>
+<event size="1" name="sound.system"/>
+<event size="2" name="sound.freq"/>
+<event size="1" name="sound.play"/>
+<event size="1" name="sound.replay"/>
+<event size="1" name="leds.sound"/>
+<event size="1" name="leds.rc"/>
+
+
+<!--list of constants-->
+
+
+<!--show keywords state-->
+<keywords flag="true"/>
+
+
+<!--node thymio-II-->
+<node nodeId="1" name="thymio-II">
+    var speed = 0
+    onevent setSpeed
+      speed = event.args[0]
+    onevent mic.threshold
+      mic.threshold = event.args[0]      
+    onevent timer0.period
+      timer.period[0] = event.args[0]
+    onevent timer1.period
+      timer.period[1] = event.args[0]
+    onevent prox.comm.tx
+      prox.comm.tx = event.args[0]
+    onevent prox.comm.enable
+      call prox.comm.enable(event.args[0])
+    onevent leds.bottom.right
+      call leds.bottom.right(event.args[0], event.args[1], event.args[2])
+    onevent leds.bottom.left
+      call leds.bottom.left(event.args[0], event.args[1], event.args[2])
+    onevent leds.circle
+      call leds.circle(event.args[0], event.args[1], event.args[2], event.args[3], event.args[4], event.args[5], event.args[6], event.args[7])
+    onevent leds.prox.h
+      call leds.prox.h(event.args[0], event.args[1], event.args[2], event.args[3], event.args[4], event.args[5], event.args[6], event.args[7])
+    onevent leds.prox.v
+      call leds.prox.v(event.args[0], event.args[1])      
+    onevent leds.buttons
+      call leds.buttons(event.args[0], event.args[1], event.args[2], event.args[3])
+    onevent leds.temperature
+      call leds.temperature(event.args[0], event.args[1])
+    onevent leds.sound
+      call leds.sound(event.args[0])
+    onevent leds.rc
+      call leds.sound(event.args[0])
+    onevent leds.color
+      call leds.top(event.args[0], event.args[1], event.args[2])
+      call leds.bottom.left(event.args[0], event.args[1], event.args[2])
+      call leds.bottom.right(event.args[0], event.args[1], event.args[2])
+    onevent leds.top
+      call leds.top(event.args[0], event.args[1], event.args[2])
+    onevent sound.system
+      call sound.system(event.args[0])
+    onevent sound.play
+      call sound.play(event.args[0])
+    onevent sound.replay
+      call sound.replay(event.args[0])
+    onevent sound.freq
+      call sound.freq(event.args[0], event.args[1])
+    onevent button.forward
+      call sound.system(1)
+      speed = 200
+    onevent button.center
+      speed = 0
+    onevent prox
+      if 800 > prox.ground.delta[0]  then
+        motor.left.target = 0
+      else
+        motor.left.target = speed
+      end
+      if 800 > prox.ground.delta[1] then
+        motor.right.target = 0
+      else 
+        motor.right.target = speed
+      end
+</node>
+</network>
