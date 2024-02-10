@@ -2,6 +2,18 @@
 
 import time
 import csv
+import subprocess
+
+import sys
+
+def install(package):
+      subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+      print("package installed")
+install('pandas')
+import pandas as pd
+
+
+
 # let's define a new box class that inherits from OVBox
 class MyOVBox(OVBox):
    out = []
@@ -16,6 +28,10 @@ class MyOVBox(OVBox):
        self.prenom = self.setting['pseudo']
        self.event =  self.setting['event']
 
+   
+   def process(self):
+      pass
+
 
    
    def uninitialize(self):
@@ -27,13 +43,19 @@ class MyOVBox(OVBox):
 
       nom_fichier = "bin/performances.csv"
 
+      df = pd.read_csv(nom_fichier)
+
+      df.append(nouvelle_ligne, ignore_index=True)
+
+      df.to_csv(nom_fichier, index=False)
+
       #Ouvrir le fichier CSV en mode écriture
-      with open(nom_fichier, mode='a', newline='') as file:
+ #     with open(nom_fichier, mode='a', newline='') as file:
          # Créer un objet writer
-         writer = csv.writer(file)
+  #       writer = csv.writer(file)
 
       #Ajouter la nouvelle ligne au fichier CSV
-         writer.writerow(nouvelle_ligne)
+ #        writer.writerow(nouvelle_ligne)
 
 
 
