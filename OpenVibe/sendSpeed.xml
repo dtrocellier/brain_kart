@@ -8,7 +8,7 @@
 			<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
 			<Name>Baseline</Name>
 			<DefaultValue>0</DefaultValue>
-			<Value>40</Value>
+			<Value>12</Value>
 		</Setting>
 	</Settings>
 	<Inputs></Inputs>
@@ -112,7 +112,7 @@
 					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
 					<Name>Spatial Filter Coefficients</Name>
 					<DefaultValue>1;0;0;0;0;1;0;0;0;0;1;0;0;0;0;1</DefaultValue>
-					<Value>1;1;1;1;1;1;1;1</Value>
+					<Value>1;1;1</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -126,7 +126,7 @@
 					<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
 					<Name>Number of Input Channels</Name>
 					<DefaultValue>4</DefaultValue>
-					<Value>8</Value>
+					<Value>3</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
@@ -174,7 +174,7 @@
 		</Box>
 		<Box>
 			<Identifier>(0x000022cc, 0x00006d7d)</Identifier>
-			<Name>1:8</Name>
+			<Name>1:3</Name>
 			<AlgorithmClassIdentifier>(0x361722e8, 0x311574e8)</AlgorithmClassIdentifier>
 			<Inputs>
 				<Input>
@@ -193,7 +193,7 @@
 					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
 					<Name>Channel List</Name>
 					<DefaultValue>:</DefaultValue>
-					<Value>1:8</Value>
+					<Value>1:3</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 				<Setting>
