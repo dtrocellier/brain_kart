@@ -7,6 +7,93 @@
 	<Outputs></Outputs>
 	<Boxes>
 		<Box>
+			<Identifier>(0x000029c5, 0x000008d9)</Identifier>
+			<Name>Python 3 scripting</Name>
+			<AlgorithmClassIdentifier>(0x5dc4f669, 0xd3fd4d63)</AlgorithmClassIdentifier>
+			<Settings>
+				<Setting>
+					<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
+					<Name>Clock frequency (Hz)</Name>
+					<DefaultValue>64</DefaultValue>
+					<Value>64</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
+					<Name>Script</Name>
+					<DefaultValue></DefaultValue>
+					<Value>C:/Users/dtrocell/Documents/brain_kart/OpenVibe/save_csv.py</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<Identifier>(0x09874b79, 0xd9f3ae6a)</Identifier>
+					<TypeIdentifier>(0xffffffff, 0xffffffff)</TypeIdentifier>
+					<Name>path</Name>
+					<DefaultValue>${Path_Bin}</DefaultValue>
+					<Value>${Player_ScenarioDirectory}/bin</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<Identifier>(0xb3ea3ee0, 0xaabaa74c)</Identifier>
+					<TypeIdentifier>(0xffffffff, 0xffffffff)</TypeIdentifier>
+					<Name>pseudo</Name>
+					<DefaultValue>$var{pseudo}</DefaultValue>
+					<Value>$var{pseudo}</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+				<Setting>
+					<Identifier>(0xb68ba549, 0xc4c2f8a1)</Identifier>
+					<TypeIdentifier>(0xffffffff, 0xffffffff)</TypeIdentifier>
+					<Name>event</Name>
+					<DefaultValue>$var{event}</DefaultValue>
+					<Value>$var{event}</Value>
+					<Modifiability>false</Modifiability>
+				</Setting>
+			</Settings>
+			<Attributes>
+				<Attribute>
+					<Identifier>(0x17ee7c08, 0x94c14893)</Identifier>
+					<Value></Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
+					<Value>176</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
+					<Value>368</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x30a4e5c9, 0x83502953)</Identifier>
+					<Value></Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
+					<Value>(0x2a651510, 0xb4fad0d4)</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x527ad68d, 0x16d746a0)</Identifier>
+					<Value></Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0x61d11811, 0x71e65362)</Identifier>
+					<Value></Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0xce18836a, 0x9c0eb403)</Identifier>
+					<Value>2</Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0xf191c1c8, 0xa0123976)</Identifier>
+					<Value></Value>
+				</Attribute>
+				<Attribute>
+					<Identifier>(0xfba64161, 0x65304e21)</Identifier>
+					<Value></Value>
+				</Attribute>
+			</Attributes>
+		</Box>
+		<Box>
 			<Identifier>(0x000030b6, 0x000068a0)</Identifier>
 			<Name>Threshold Crossing Detector</Name>
 			<AlgorithmClassIdentifier>(0x04fa78cd, 0xafe45de7)</AlgorithmClassIdentifier>
