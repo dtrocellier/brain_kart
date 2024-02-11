@@ -5,12 +5,12 @@ import csv
 import subprocess
 
 import sys
-
-def install(package):
-      subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-      print("package installed")
-install('pandas')
-import pandas as pd
+#
+# def install(package):
+#       subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+#       print("package installed")
+# install('pandas')
+# import pandas as pd
 
 
 
@@ -24,9 +24,10 @@ class MyOVBox(OVBox):
 
 
    def initialize(self):
-       print(self.setting)
+       # print(self.setting)
        self.prenom = self.setting['pseudo']
        self.event =  self.setting['event']
+       self.path = self.setting['path']
 
    
    def process(self):
@@ -41,21 +42,21 @@ class MyOVBox(OVBox):
       fichier_gdf = f"{self.prenom}_{self.event}_{score}.gdf"
       nouvelle_ligne = [self.prenom, self.event, score, fichier_gdf ]
 
-      nom_fichier = "bin/performances.csv"
+      nom_fichier = f"{self.path}/performance.csv"
 
-      df = pd.read_csv(nom_fichier)
-
-      df.append(nouvelle_ligne, ignore_index=True)
-
-      df.to_csv(nom_fichier, index=False)
+      # df = pd.read_csv(nom_fichier)
+      #
+      # df.append(nouvelle_ligne, ignore_index=True)
+      #
+      # df.to_csv(nom_fichier, index=False)
 
       #Ouvrir le fichier CSV en mode écriture
- #     with open(nom_fichier, mode='a', newline='') as file:
+      with open(nom_fichier, mode='a', newline='') as file:
          # Créer un objet writer
-  #       writer = csv.writer(file)
+         writer = csv.writer(file)
 
       #Ajouter la nouvelle ligne au fichier CSV
- #        writer.writerow(nouvelle_ligne)
+         writer.writerow(nouvelle_ligne)
 
 
 
