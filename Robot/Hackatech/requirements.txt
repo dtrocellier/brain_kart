@@ -1,0 +1,2 @@
+thymiodirect
+pylsl == 1.17.6
