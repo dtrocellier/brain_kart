@@ -1,6 +1,13 @@
 # we use numpy to compute the mean of an array of values
 import numpy
 import math
+
+import numpy as np
+
+
+import os
+
+
 # let's define a new box class that inherits from OVBox
 class MyOVBox(OVBox):
    out = []
@@ -14,7 +21,7 @@ class MyOVBox(OVBox):
        self.signal = numpy.empty([1, 64*30])
        self.nb_chunk=0
        print("init...")
-   
+
 
 
    # The process method will be called by openvibe on every clock tick
@@ -32,7 +39,7 @@ class MyOVBox(OVBox):
             self.signalHeader.samplingRate)
             self.output[0].append(outputHeader)
             print(self.signalHeader)
-            
+
 
          # if it's a buffer we pop it and put it in a numpy array at the right dimensions
          # We compute the mean and add the buffer in the box output buffer
@@ -51,13 +58,36 @@ class MyOVBox(OVBox):
             #self.output[0].append(self.input[0].pop())
 
    def uninitialize(self):
-      mask = numpy.isfinite(self.signal)
+      self.signal = numpy.array(self.signal[0, 0:self.nb_chunk])
+      # mask = numpy.isfinite(self.signal)
+      # self.signal = self.signal[mask]
+      # print(self.signal.shape)
 
-      # for i in range(self.signal.shape[0]):
-      #    print(self.signal[:,i])
+      #  the 10% higher values
+
+      high_percentile = numpy.percentile(self.signal, 90)
+      self.signal  = self.signal [self.signal  < high_percentile]
 
 
-      print("mean:",self.signal[0, 0:self.nb_chunk].mean(axis=0))
+      # Calculate mean and std
+      mean = self.signal.mean()
+      std = self.signal.std()
+
+      print ("\nmean", std)
+      print("std", mean)
+
+      # For the moment does not work because path issues
+
+      # # Overwrite the existing files with new values
+      # with open("bin/baseline_mean.txt", "w") as mean_file:
+      #    mean_file.write(str(mean))
+      #
+      # with open("bin/baseline_std.txt", "w") as std_file:
+      #    std_file.write(str(std))
+
+
+
+      # print("mean:",self.signal[0, 0:self.nb_chunk].mean(axis=0))
       # print("signal:",self.signal)
       # print("nb_chunk", self.nb_chunk)
       # mask = numpy.where(self.signal == 0)
@@ -65,7 +95,7 @@ class MyOVBox(OVBox):
 
 
 
-     
+
 
 # Finally, we notify openvibe that the box instance 'box' is now an instance of MyOVBox.
 # Don't forget that step !!
