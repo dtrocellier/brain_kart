@@ -73,8 +73,8 @@ class MyOVBox(OVBox):
       mean = self.signal.mean()
       std = self.signal.std()
 
-      print ("\nmean", std)
-      print("std", mean)
+      print ("\nmean", mean)
+      print("std", std)
 
       # For the moment does not work because path issues
 

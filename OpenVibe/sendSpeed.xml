@@ -8,7 +8,7 @@
 			<TypeIdentifier>(0x007deef9, 0x2f3e95c6)</TypeIdentifier>
 			<Name>mean_baseline</Name>
 			<DefaultValue>0</DefaultValue>
-			<Value>21</Value>
+			<Value>11.7</Value>
 		</Setting>
 		<Setting>
 			<Identifier>(0xcb78a40e, 0xf50f0cee)</Identifier>
@@ -29,7 +29,7 @@
 			<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
 			<Name>std_baseline</Name>
 			<DefaultValue>0</DefaultValue>
-			<Value>0.35</Value>
+			<Value>4.7</Value>
 		</Setting>
 	</Settings>
 	<Inputs></Inputs>
@@ -1021,7 +1021,7 @@
 					<TypeIdentifier>(0x79a9edeb, 0x245d83fc)</TypeIdentifier>
 					<Name>Equation</Name>
 					<DefaultValue>x</DefaultValue>
-					<Value>(a-$var{mean_baseline})*$var{std_baseline}</Value>
+					<Value>((a-$var{mean_baseline})/($var{mean_baseline}))*13</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>

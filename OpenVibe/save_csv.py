@@ -39,7 +39,7 @@ class MyOVBox(OVBox):
 
 
       score = self.getCurrentTime() 
-      fichier_gdf = f"{self.prenom}_{self.event}_{score}.gdf"
+      fichier_gdf = f"{self.prenom}_{self.event}.gdf"
       nouvelle_ligne = [self.prenom, self.event, score, fichier_gdf ]
 
       nom_fichier = f"{self.path}/performance.csv"
