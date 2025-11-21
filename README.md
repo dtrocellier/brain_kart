@@ -18,7 +18,8 @@ To use it (with an OpenBCI devices) :
 
 **Step 3 :**
 - Open the Pyhton Notebook
-- Install the packages with pip if you do not have them
+- Install the packages with pip if you do not have them : 
+    - with the command : pip install -r requirements.txt
 
 **Step 4 :** 
 - Open the Open Vibe Designer with the scenarios 
